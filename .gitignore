@@ -46,5 +46,14 @@ history.json
 *.sqlite3
 *.db
 
+# ChromeDriver (большие бинарные файлы)
+chromedriver-win64/
+*.exe
+
+# Build artifacts
+buildintel_app/dist/
+buildintel_app/build/
+buildintel_app/*.spec
+
 # Logs
 *.log
