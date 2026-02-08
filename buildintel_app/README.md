@@ -7,7 +7,7 @@
 ### Для создания .exe файла:
 
 1. Откройте папку `buildintel_app` в проводнике Windows
-2. **Дважды кликните** на файл **`build_exe_advanced.bat`** (рекомендуется) или `СОЗДАТЬ_EXE.bat`
+2. **Дважды кликните** на файл **`build_exe_advanced.bat`**
 3. Дождитесь завершения сборки (10-15 минут)
 4. После сборки откроется папка `dist` с файлом `BuildIntel.exe`
 5. **Дважды кликните** на `BuildIntel.exe` - приложение запустится БЕЗ терминала!
@@ -19,7 +19,7 @@
 ### ✅ ПРАВИЛЬНЫЙ СПОСОБ:
 
 1. Откройте папку `buildintel_app` в проводнике Windows
-2. **Дважды кликните** на файл **`ЗАПУСТИТЬ.bat`** (или `Запустить_BuildIntel.bat`, `START.bat`)
+2. **Дважды кликните** на файл **`ЗАПУСТИТЬ.bat`**
 3. Файл автоматически проверит и установит все зависимости
 4. Приложение запустится автоматически
 
@@ -39,8 +39,6 @@
 3. Дождитесь завершения сборки (10-15 минут)
 4. После сборки автоматически откроется папка `dist` с файлом `BuildIntel.exe`
 
-**Обычная сборка (если ошибок не было):**
-- Используйте `СОЗДАТЬ_EXE.bat` или `build.bat`
 
 **Запуск .exe файла:**
 
@@ -53,7 +51,6 @@
 - `.exe` файл можно переместить в любое место и запускать оттуда
 - После создания `.exe` больше не нужны Python и зависимости
 
-**Подробнее:** См. файл `КАК_СОЗДАТЬ_EXE.md`
 
 ## Возможности
 
@@ -72,10 +69,7 @@
 
 1. Установите зависимости (глобально или в venv):
 ```bash
-# Автоматическая установка:
-.\УСТАНОВИТЬ_ЗАВИСИМОСТИ.bat
-
-# Или вручную:
+# Установка зависимостей:
 pip install -r requirements.txt
 
 # Или в виртуальное окружение:
@@ -84,7 +78,7 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 ```
 
-**Примечание:** Если возникает ошибка "ModuleNotFoundError", дважды кликните на `УСТАНОВИТЬ_ЗАВИСИМОСТИ.bat`
+**Примечание:** Если возникает ошибка "ModuleNotFoundError", выполните `pip install -r requirements.txt`
 
 2. **Запустите бэкенд FastAPI** (в отдельном терминале):
 ```bash
@@ -130,23 +124,23 @@ python main.py
 
 **Способ 1: Двойной клик**
 - Откройте папку `buildintel_app` в проводнике
-- Дважды кликните на файл `build.bat`
+- Дважды кликните на файл `build_exe_advanced.bat`
 
 **Способ 2: Через терминал**
 ```powershell
 # В PowerShell:
-.\build.bat
+.\build_exe_advanced.bat
 
 # Или в Command Prompt:
 build.bat
 ```
 
-**НЕ делайте так:** `python build.bat` ❌ (это вызовет ошибку!)
+**НЕ делайте так:** `python build_exe_advanced.bat` ❌ (это вызовет ошибку!)
 
 ### Ручная сборка:
 ```bash
 pip install pyinstaller
-pyinstaller --name=BuildIntel --onefile --windowed --add-data="ui;ui" --hidden-import=PyQt6.QtCore --hidden-import=PyQt6.QtGui --hidden-import=PyQt6.QtWidgets --collect-all=PyQt6 --clean --noconfirm main.py
+pyinstaller --name=BuildIntel --onefile --windowed --add-data="ui;ui" --hidden-import=PyQt5.QtCore --hidden-import=PyQt5.QtGui --hidden-import=PyQt5.QtWidgets --collect-all=PyQt5 --clean --noconfirm main.py
 ```
 
 Исполняемый файл будет находиться в папке `dist/BuildIntel.exe`
@@ -164,7 +158,6 @@ buildintel_app/
 │   ├── parse_tab.py     # Вкладка парсинга
 │   └── history_tab.py   # Вкладка истории
 ├── requirements.txt     # Зависимости
-├── build.bat           # Скрипт сборки для Windows
 └── README.md           # Документация
 ```
 
@@ -172,7 +165,7 @@ buildintel_app/
 
 Если при запуске возникает ошибка "ModuleNotFoundError: No module named 'PyQt5'":
 
-1. **Быстрое решение:** Дважды кликните на **`УСТАНОВИТЬ_ЗАВИСИМОСТИ.bat`**
+1. **Быстрое решение:** Выполните в терминале: `pip install -r requirements.txt`
 
 2. **Вручную:**
 ```bash
